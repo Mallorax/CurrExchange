@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/curr_exchange_list_fragment">
+
+    <fragment
+        android:id="@+id/curr_exchange_list_fragment"
+        android:name="com.example.currencyexchange.ui.CurrExchangeListFragment"
+        tools:layout="@layout/curr_exchange_list_fragment"
+        android:label="Exchange rates"/>
+
+</navigation>
