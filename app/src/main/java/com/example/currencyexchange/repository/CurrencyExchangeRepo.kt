@@ -1,5 +1,6 @@
 package com.example.currencyexchange.repository
 
+import androidx.paging.PagingData
 import com.example.currencyexchange.model.CurrencyExchangeDate
 import com.example.currencyexchange.model.CurrencyExchangeModel
 import io.reactivex.rxjava3.core.Flowable
@@ -8,5 +9,5 @@ import java.util.*
 
 interface CurrencyExchangeRepo {
 
-    fun getCurrencyRatiosFromDate(calendar: Calendar): Single<List<CurrencyExchangeModel>>
+    fun getCurrencyRatiosFromDate(): Flowable<PagingData<CurrencyExchangeModel>>
 }
