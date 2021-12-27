@@ -14,5 +14,5 @@ interface HistoricalRatesEndpoint {
     @GET("{date}")
     fun getHistoricalRates(@Path("date")date: String = "2021-12-27",
                            @Query("access_key") apiKey: String = BuildConfig.API_KEY)
-    : Single<Response<HistoricalRatesResponse>>
+    : Single<HistoricalRatesResponse>
 }
