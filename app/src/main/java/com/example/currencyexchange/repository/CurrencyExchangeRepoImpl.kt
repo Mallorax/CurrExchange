@@ -17,11 +17,13 @@ private val pagingSource: ExchangeRatioPagingSource): CurrencyExchangeRepo {
             PagingConfig(
                 pageSize = 1,
                 enablePlaceholders = false,
-                prefetchDistance = 0,
+                prefetchDistance = 1,
                 initialLoadSize = 1
             ),
             pagingSourceFactory = {pagingSource}
-        ).flowable.map { t -> t.flatMap { mapToExchangeRatio(it) } }
+        ).flowable.map {
+                t -> t.flatMap {
+            mapToExchangeRatio(it) } }
     }
 
 }

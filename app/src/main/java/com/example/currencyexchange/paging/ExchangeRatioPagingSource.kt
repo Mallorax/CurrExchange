@@ -18,7 +18,7 @@ class ExchangeRatioPagingSource @Inject constructor(val retrofit: HistoricalRate
         val anchorPos = state.anchorPosition ?: return null
         val anchorPage = state.closestPageToPosition(anchorPos) ?: return null
         val prevKeyString = anchorPage.prevKey
-        val format = SimpleDateFormat("yyyy-mm-dd", Locale.US)
+        val format = SimpleDateFormat("yyyy-MM-dd", Locale.US)
         val cal = Calendar.getInstance()
         if (prevKeyString != null){
             cal.time = format.parse(prevKeyString)
@@ -36,11 +36,11 @@ class ExchangeRatioPagingSource @Inject constructor(val retrofit: HistoricalRate
     }
 
     override fun loadSingle(params: LoadParams<String>): Single<LoadResult<String, HistoricalRatesResponse>> {
-        val format = SimpleDateFormat("yyyy-mm-dd", Locale.US)
+        val format = SimpleDateFormat("yyyy-MM-dd", Locale.US)
         val cal = Calendar.getInstance()
         val nextPageNumber = params.key ?: format.format(cal.time)
 
-        return retrofit.getHistoricalRates(nextPageNumber)
+        return retrofit.getHistoricalRates(date = nextPageNumber)
             .observeOn(Schedulers.computation())
             .map{response -> toLoadResult(response, nextPageNumber)}
             .onErrorReturn{t -> LoadResult.Error(t)}
@@ -60,7 +60,7 @@ class ExchangeRatioPagingSource @Inject constructor(val retrofit: HistoricalRate
     }
 
     private fun previousKey(page: String):String?{
-        val format = SimpleDateFormat("yyyy-mm-dd", Locale.US)
+        val format = SimpleDateFormat("yyyy-MM-dd", Locale.US)
         val cal = Calendar.getInstance()
         val currentDateString = format.format(cal.time)
         cal.time = format.parse(page)!!
@@ -72,7 +72,7 @@ class ExchangeRatioPagingSource @Inject constructor(val retrofit: HistoricalRate
         }
     }
     private fun nextKey(page: String):String?{
-        val format = SimpleDateFormat("yyyy-mm-dd", Locale.US)
+        val format = SimpleDateFormat("yyyy-MM-dd", Locale.US)
         val cal = Calendar.getInstance()
         cal.time = format.parse(page)!!
         cal.add(Calendar.DAY_OF_MONTH, -1)

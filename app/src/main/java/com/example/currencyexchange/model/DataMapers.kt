@@ -5,7 +5,7 @@ import java.util.*
 
 fun mapToExchangeRatio(response: HistoricalRatesResponse): List<CurrencyExchangeModel>{
     val result = mutableListOf<CurrencyExchangeModel>()
-    val dateFormat = SimpleDateFormat("yyyy-mm-dd", Locale.US)
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
     val cal = Calendar.getInstance()
     cal.time = dateFormat.parse(response.date)!!
     result.add(CurrencyExchangeDate(cal))
