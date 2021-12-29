@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/curr_exchange_list_fragment"
-        android:name="com.example.currencyexchange.ui.CurrExchangeListFragment"
+        android:name="com.example.currencyexchange.ui.currencylist.CurrExchangeListFragment"
         tools:layout="@layout/curr_exchange_list_fragment"
         android:label="Exchange rates"/>
 

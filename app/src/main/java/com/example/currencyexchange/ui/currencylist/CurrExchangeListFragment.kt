@@ -1,4 +1,4 @@
-package com.example.currencyexchange.ui
+package com.example.currencyexchange.ui.currencylist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -44,8 +44,8 @@ class CurrExchangeListFragment: Fragment() {
         return binding.root
     }
 
-    private fun setupRecyclerViewAdapter(): CurrExchangeAdapter{
-        return CurrExchangeAdapter(CurrExchangeAdapter.OnItemClickListener {item, view ->
+    private fun setupRecyclerViewAdapter(): CurrExchangeAdapter {
+        return CurrExchangeAdapter(CurrExchangeAdapter.OnItemClickListener { item, view ->
             Snackbar.make(view, "Item clicked", Snackbar.LENGTH_LONG).show()
         })
     }

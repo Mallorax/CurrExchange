@@ -10,7 +10,7 @@ fun mapToExchangeRatio(response: HistoricalRatesResponse): List<CurrencyExchange
     cal.time = dateFormat.parse(response.date)!!
     result.add(CurrencyExchangeDate(cal))
     response.rates.forEach{(key, value) ->
-        result.add(CurrExchangeRatio(key, value))
+        result.add(CurrExchangeRatio(key, value, response.date, response.base))
     }
     return result
 }

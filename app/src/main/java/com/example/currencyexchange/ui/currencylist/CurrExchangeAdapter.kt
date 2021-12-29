@@ -1,4 +1,4 @@
-package com.example.currencyexchange.ui
+package com.example.currencyexchange.ui.currencylist
 
 import android.view.LayoutInflater
 import android.view.View

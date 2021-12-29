@@ -1,4 +1,4 @@
-package com.example.currencyexchange.ui
+package com.example.currencyexchange.ui.currencylist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.LiveDataReactiveStreams
