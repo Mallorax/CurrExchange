@@ -37,7 +37,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:textSize="20sp"
-            android:text="@{Double.toString(bindedItem.ratio)}"
+            android:text="@{bindedItem.formattedRatio}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/currency_tag"
             app:layout_constraintTop_toTopOf="parent"
