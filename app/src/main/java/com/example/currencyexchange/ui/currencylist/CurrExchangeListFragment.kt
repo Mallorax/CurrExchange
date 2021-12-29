@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.example.currencyexchange.databinding.CurrExchangeListFragmentBinding
 import com.example.currencyexchange.network.HistoricalRatesEndpoint
 import com.google.android.material.snackbar.Snackbar
@@ -46,7 +47,8 @@ class CurrExchangeListFragment: Fragment() {
 
     private fun setupRecyclerViewAdapter(): CurrExchangeAdapter {
         return CurrExchangeAdapter(CurrExchangeAdapter.OnItemClickListener { item, view ->
-            Snackbar.make(view, "Item clicked", Snackbar.LENGTH_LONG).show()
+            val action = CurrExchangeListFragmentDirections.actionExchangeListFragmentToExchangeDetailsFragment(item)
+            view.findNavController().navigate(action)
         })
     }
 }

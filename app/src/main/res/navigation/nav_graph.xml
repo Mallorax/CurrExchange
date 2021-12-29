@@ -9,6 +9,21 @@
         android:id="@+id/curr_exchange_list_fragment"
         android:name="com.example.currencyexchange.ui.currencylist.CurrExchangeListFragment"
         tools:layout="@layout/curr_exchange_list_fragment"
-        android:label="Exchange rates"/>
+        android:label="@string/exchange_rate_list_label">
+        <action
+            android:id="@+id/action_exchangeListFragment_to_exchangeDetailsFragment"
+            app:destination="@+id/curr_exchange_details_fragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/curr_exchange_details_fragment"
+        android:name="com.example.currencyexchange.ui.currencydetails.CurrExchangeDetailsFragment"
+        tools:layout="@layout/curr_exchange_details_fragment"
+        android:label="@string/exchange_rate_details_label">
+        <argument
+            android:name="currExchangeRatio"
+            app:argType="com.example.currencyexchange.model.CurrExchangeRatio" />
+
+    </fragment>
 
 </navigation>

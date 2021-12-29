@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CurrencyExchange</string>
+    <string name="exchange_rate_list_label">Exchange rates</string>
+    <string name="exchange_rate_details_label">Exchange rate details</string>
 </resources>

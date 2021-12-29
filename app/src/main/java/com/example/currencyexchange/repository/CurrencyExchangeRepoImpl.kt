@@ -1,6 +1,7 @@
 package com.example.currencyexchange.repository
 
 import androidx.paging.*
+import androidx.paging.rxjava3.cachedIn
 import androidx.paging.rxjava3.flowable
 import com.example.currencyexchange.model.CurrencyExchangeModel
 import com.example.currencyexchange.model.mapToExchangeRatio

@@ -24,18 +24,13 @@ class CurrExchangeAdapter(private val onClickListener: OnItemClickListener) :
                 val currencyRatioHolder = holder as CurrencyExchangeRateVH
                 holder.binding.root.setOnClickListener {
                     if (item != null) {
-                        onClickListener.onItemClick(item, it)
+                        onClickListener.onItemClick(item as CurrExchangeRatio, it)
                     }
                 }
                 currencyRatioHolder.bind(item as CurrExchangeRatio)
             }
             else -> {
                 val currencyDateHolder = holder as CurrencyExchangeDateVH
-                holder.binding.root.setOnClickListener {
-                    if (item != null) {
-                        onClickListener.onItemClick(item, it)
-                    }
-                }
                 currencyDateHolder.bind(item as CurrencyExchangeDate)
             }
         }
@@ -43,14 +38,14 @@ class CurrExchangeAdapter(private val onClickListener: OnItemClickListener) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        when (viewType) {
+        return when (viewType) {
             0 -> {
                 val binding = CurrencyItemBindingImpl.inflate(inflater)
-                return CurrencyExchangeRateVH(binding)
+                CurrencyExchangeRateVH(binding)
             }
             else -> {
                 val binding = DateItemBindingImpl.inflate(inflater)
-                return CurrencyExchangeDateVH(binding)
+                CurrencyExchangeDateVH(binding)
             }
         }
     }
@@ -110,7 +105,7 @@ class CurrExchangeAdapter(private val onClickListener: OnItemClickListener) :
         }
     }
 
-    class OnItemClickListener(val clickListener: (item: CurrencyExchangeModel, v: View) -> Unit) {
-        fun onItemClick(item: CurrencyExchangeModel, v: View) = clickListener(item, v)
+    class OnItemClickListener(val clickListener: (item: CurrExchangeRatio, v: View) -> Unit) {
+        fun onItemClick(item: CurrExchangeRatio, v: View) = clickListener(item, v)
     }
 }
