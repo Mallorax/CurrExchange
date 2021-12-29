@@ -40,11 +40,11 @@ class CurrExchangeAdapter(private val onClickListener: OnItemClickListener) :
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             0 -> {
-                val binding = CurrencyItemBindingImpl.inflate(inflater)
+                val binding = CurrencyItemBindingImpl.inflate(inflater, parent, false)
                 CurrencyExchangeRateVH(binding)
             }
             else -> {
-                val binding = DateItemBindingImpl.inflate(inflater)
+                val binding = DateItemBindingImpl.inflate(inflater, parent, false)
                 CurrencyExchangeDateVH(binding)
             }
         }
