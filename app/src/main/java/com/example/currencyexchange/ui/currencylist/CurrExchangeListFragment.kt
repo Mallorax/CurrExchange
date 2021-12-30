@@ -20,10 +20,7 @@ class CurrExchangeListFragment: Fragment() {
     private var _binding: CurrExchangeListFragmentBinding? = null
     private val binding get() = _binding!!
     private val viewModel: CurrExchangeViewModel by viewModels()
-
-    @Inject lateinit var service: HistoricalRatesEndpoint
-
-
+    
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
